@@ -109,18 +109,22 @@ nav {
     padding: 0 20px;
     position: relative;
     overflow: hidden;
+    background: url('image4.jpg') center center / cover no-repeat;
 }
 
-/* Subtle radial glow behind text */
+/* Dark overlay so text stays readable */
 .hero::before {
     content: '';
     position: absolute;
-    width: 600px; height: 600px;
-    border-radius: 50%;
-    background: radial-gradient(circle, rgba(139,105,20,0.08) 0%, transparent 70%);
-    top: 50%; left: 50%;
-    transform: translate(-50%, -50%);
+    inset: 0;
+    background: linear-gradient(
+        to bottom,
+        rgba(19, 16, 8, 0.55) 0%,
+        rgba(19, 16, 8, 0.45) 50%,
+        rgba(19, 16, 8, 0.75) 100%
+    );
     pointer-events: none;
+    z-index: 0;
 }
 
 /* Large watermark aperture shape behind hero */
@@ -129,13 +133,14 @@ nav {
     position: absolute;
     width: 520px; height: 520px;
     border-radius: 50%;
-    border: 1px solid rgba(212, 196, 168, 0.06);
+    border: 1px solid rgba(212, 196, 168, 0.08);
     top: 50%; left: 50%;
     transform: translate(-50%, -50%);
     pointer-events: none;
+    z-index: 0;
 }
 
-.hero-inner { position: relative; z-index: 1; }
+.hero-inner { position: relative; z-index: 2; }
 
 .hero-eyebrow {
     font-size: 11px;
@@ -353,6 +358,84 @@ button[type="submit"] {
 button[type="submit"]:hover {
     background: var(--gold);
     color: var(--black);
+}
+
+/* ── CONTACT LINKS ── */
+.contact-links {
+    display: flex;
+    flex-direction: column;
+    max-width: 560px;
+    border-top: 1px solid rgba(139, 105, 20, 0.18);
+}
+
+.contact-item {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    padding: 22px 0;
+    border-bottom: 1px solid rgba(139, 105, 20, 0.12);
+    text-decoration: none;
+    color: var(--white);
+    transition: padding-left 0.3s, background 0.3s;
+    border-radius: 2px;
+}
+
+.contact-item:hover {
+    padding-left: 12px;
+    background: rgba(139, 105, 20, 0.05);
+}
+
+.contact-icon {
+    width: 44px;
+    height: 44px;
+    border: 1px solid rgba(139, 105, 20, 0.3);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--gold);
+    flex-shrink: 0;
+    transition: background 0.3s, border-color 0.3s;
+}
+
+.contact-item:hover .contact-icon {
+    background: var(--gold);
+    color: var(--black);
+    border-color: var(--gold);
+}
+
+.contact-detail {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+    flex: 1;
+}
+
+.contact-label {
+    font-size: 10px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--gold);
+    font-weight: 400;
+}
+
+.contact-value {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 18px;
+    color: var(--beige);
+    font-weight: 400;
+}
+
+.contact-arrow {
+    color: var(--gold);
+    font-size: 18px;
+    opacity: 0;
+    transform: translateX(-8px);
+    transition: opacity 0.3s, transform 0.3s;
+}
+
+.contact-item:hover .contact-arrow {
+    opacity: 1;
+    transform: translateX(0);
 }
 
 /* ---------- PRICING ---------- */
@@ -624,14 +707,14 @@ footer span { color: var(--gold); }
 -->
 <section id="gallery" class="gallery">
     <div class="grid">
-        <img src="image1.jpg" alt="portrait photography">
-        <img src="image2.jpg" alt="portrait photography">
-        <img src="image3.jpg" alt="portrait photography">
-        <img src="image4.jpg" alt="portrait photography">
-        <img src="image5.jpg" alt="portrait photography">
-        <img src="image6.jpg" alt="portrait photography">
+        <img src="image1.jpg" alt="portrait — Nuèlgraphy">
+        <img src="image2.jpg" alt="lifestyle shoot — Nuèlgraphy">
+        <img src="image3.jpg" alt="lifestyle shoot — Nuèlgraphy">
+        <img src="image4.jpg" alt="portrait — Nuèlgraphy">
+        <img src="image5.jpg" alt="event coverage — Nuèlgraphy">
+        <img src="image6.jpg" alt="wedding coverage — Nuèlgraphy">
         <!-- Add more images below this line: -->
-        <!-- <img src="image7.jpg" alt="portrait photography"> -->
+        <!-- <img src="image7.jpg" alt="portrait — Nuèlgraphy"> -->
     </div>
 </section>
 
@@ -743,26 +826,68 @@ footer span { color: var(--gold); }
 
 
 <!-- ══════════════ CONTACT ══════════════ -->
-<!--
-    ✅ CONTACT FORM SETUP (FREE, NO CODING):
-    1. Go to https://formspree.io and create a free account.
-    2. Click "New Form", give it a name (e.g. "Nuèlgraphy Contact").
-    3. Copy your unique form ID — it looks like: https://formspree.io/f/xabcdefg
-    4. Replace YOUR_FORM_ID below with just the letters after /f/ (e.g. xabcdefg)
-    
-    When someone fills the form, their message goes straight to your email. ✅
--->
 <section id="contact" class="contact">
     <h2>Let's <em>create</em> together.</h2>
     <p class="contact-sub">Enquiries, bookings & collaborations</p>
 
-    <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
-        <input type="text"  name="name"    placeholder="Your Name"  required>
-        <input type="email" name="email"   placeholder="Your Email" required>
-        <input type="text"  name="type"    placeholder="Type of shoot (Portrait / Wedding / Lifestyle)">
-        <textarea           name="message" placeholder="Tell me about your session — date, location, vision..." required></textarea>
-        <button type="submit">Send Enquiry</button>
-    </form>
+    <div class="contact-links">
+
+        <a href="mailto:nuelgraphy.lens@gmail.com" class="contact-item">
+            <div class="contact-icon">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                    <rect x="2" y="4" width="20" height="16" rx="2"/>
+                    <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/>
+                </svg>
+            </div>
+            <div class="contact-detail">
+                <span class="contact-label">Email</span>
+                <span class="contact-value">nuelgraphy.lens@gmail.com</span>
+            </div>
+            <span class="contact-arrow">→</span>
+        </a>
+
+        <a href="https://wa.me/2349035383549" target="_blank" class="contact-item">
+            <div class="contact-icon">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 1.28h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.96a16 16 0 0 0 6 6l.96-.96a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/>
+                </svg>
+            </div>
+            <div class="contact-detail">
+                <span class="contact-label">Phone & WhatsApp</span>
+                <span class="contact-value">+234 903 538 3549</span>
+            </div>
+            <span class="contact-arrow">→</span>
+        </a>
+
+        <a href="https://instagram.com/nuelgraphy.lens" target="_blank" class="contact-item">
+            <div class="contact-icon">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                    <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
+                    <circle cx="12" cy="12" r="4"/>
+                    <circle cx="17.5" cy="6.5" r="0.5" fill="currentColor"/>
+                </svg>
+            </div>
+            <div class="contact-detail">
+                <span class="contact-label">Instagram</span>
+                <span class="contact-value">@nuelgraphy.lens</span>
+            </div>
+            <span class="contact-arrow">→</span>
+        </a>
+
+        <a href="https://tiktok.com/@nuelgraphy.lens" target="_blank" class="contact-item">
+            <div class="contact-icon">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M9 12a4 4 0 1 0 4 4V4a5 5 0 0 0 5 5"/>
+                </svg>
+            </div>
+            <div class="contact-detail">
+                <span class="contact-label">TikTok</span>
+                <span class="contact-value">@nuelgraphy.lens</span>
+            </div>
+            <span class="contact-arrow">→</span>
+        </a>
+
+    </div>
 </section>
 
 
