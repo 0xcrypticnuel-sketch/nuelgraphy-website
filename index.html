@@ -477,17 +477,51 @@ footer span { color: var(--gold); }
 }
 
 @media (max-width: 700px) {
-    .nav-links { display: none; }
-    .menu-container { display: block; }
     nav { padding: 16px 5%; }
+
+    /* hero */
+    .hero h1 { font-size: 38px; }
+    .hero-tagline { font-size: 17px; }
+    .hero-sub { font-size: 10px; letter-spacing: 2px; }
+    .btn { padding: 13px 28px; font-size: 11px; letter-spacing: 2px; }
+
+    /* gallery */
     .grid { column-count: 1; }
-    .about { padding: 70px 5%; }
-    .contact { padding: 70px 5%; }
+    .gallery { padding: 70px 5%; }
+
+    /* about */
+    .about { padding: 70px 5%; gap: 20px; }
+    .about-label { writing-mode: horizontal-tb; transform: none; }
+
+    /* pricing */
     .pricing { padding: 70px 5%; }
-    .disclaimer { padding: 50px 5%; }
-    .pricing-row { grid-template-columns: 1fr; gap: 12px; }
+    .pricing-row {
+        grid-template-columns: 1fr;
+        grid-template-rows: auto;
+        gap: 8px;
+        padding: 20px 0;
+    }
+    .pricing-row-left { flex-wrap: wrap; gap: 10px; }
+    .pricing-outfit-label { font-size: 17px; }
     .pricing-row-mid { display: none; }
-    .pricing-row-right { justify-content: space-between; }
+    .pricing-row-right {
+        grid-column: 1;
+        justify-content: space-between;
+        align-items: center;
+    }
+    .pricing-row-price { font-size: 20px; }
+    .pricing-row-btn { padding: 9px 18px; }
+    .pricing-row.featured-row { padding-left: 8px; padding-right: 8px; }
+
+    /* disclaimer */
+    .disclaimer { padding: 50px 5%; }
+
+    /* contact */
+    .contact { padding: 70px 5%; }
+    .contact-value { font-size: 15px; }
+
+    /* footer */
+    footer { font-size: 11px; letter-spacing: 1px; padding: 28px 5%; }
 }
 
 </style>
@@ -555,7 +589,7 @@ footer span { color: var(--gold); }
         <p>
             Nuèlgraphy is built on a refined approach to storytelling — capturing people,
             moments, and presence with clarity and intention. Each frame is designed to feel
-            natural, confident, and enduring, reflecting not just how you look,
+            natural, confident, and endearing, reflecting not just how you look,
             but how you want to be remembered.
         </p>
         <p>
@@ -639,6 +673,7 @@ footer span { color: var(--gold); }
     </div>
 
     <p class="pricing-footnote">
+        All sessions include high-resolution edited images delivered within 7 days.
         Additional edits and custom requests can be discussed based on your session needs.
         Wedding & commercial rates available on request.
     </p>
