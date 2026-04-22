@@ -457,6 +457,158 @@ footer {
 footer span { color: var(--gold); }
 
 /* ══════════════════════════════
+   TRUST STRIP
+══════════════════════════════ */
+.trust-strip {
+    background: var(--surface);
+    border-top: 1px solid rgba(139,105,20,0.15);
+    border-bottom: 1px solid rgba(139,105,20,0.15);
+    padding: 28px 8%;
+    display: flex;
+    justify-content: center;
+    gap: 0;
+    flex-wrap: wrap;
+}
+.trust-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 32px;
+    border-right: 1px solid rgba(139,105,20,0.2);
+}
+.trust-item:last-child { border-right: none; }
+.trust-icon { color: var(--gold); flex-shrink: 0; }
+.trust-text { font-size: 12px; letter-spacing: 1px; color: var(--beige); font-weight: 300; }
+.trust-text strong { color: var(--white); font-weight: 500; display: block; font-size: 13px; }
+
+/* ══════════════════════════════
+   HOW IT WORKS
+══════════════════════════════ */
+.how-it-works {
+    padding: 100px 8%;
+    background: var(--bg);
+}
+.how-it-works h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(28px, 4vw, 42px);
+    font-weight: 400;
+    margin-bottom: 60px;
+    line-height: 1.2;
+}
+.how-it-works h2 em { font-style: italic; color: var(--gold); }
+
+.steps {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0;
+    position: relative;
+}
+.steps::before {
+    content: '';
+    position: absolute;
+    top: 28px;
+    left: calc(16.66% + 20px);
+    right: calc(16.66% + 20px);
+    height: 1px;
+    background: linear-gradient(to right, rgba(139,105,20,0.4), rgba(139,105,20,0.1), rgba(139,105,20,0.4));
+}
+.step {
+    padding: 0 32px 0 0;
+    position: relative;
+}
+.step:last-child { padding-right: 0; }
+.step-num {
+    width: 56px; height: 56px;
+    border: 1px solid rgba(139,105,20,0.5);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Playfair Display', serif;
+    font-size: 18px;
+    color: var(--gold);
+    margin-bottom: 24px;
+    background: var(--bg);
+    position: relative;
+    z-index: 1;
+}
+.step h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 20px;
+    font-weight: 400;
+    color: var(--white);
+    margin-bottom: 12px;
+}
+.step p {
+    font-size: 13px;
+    color: var(--gray);
+    line-height: 1.8;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 16px;
+}
+
+/* ══════════════════════════════
+   TESTIMONIALS
+══════════════════════════════ */
+.testimonials {
+    padding: 100px 8%;
+    background: var(--surface);
+}
+.testimonials-header { margin-bottom: 56px; }
+.testimonials-header h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(28px, 4vw, 42px);
+    font-weight: 400;
+    line-height: 1.2;
+    margin-bottom: 10px;
+}
+.testimonials-header h2 em { font-style: italic; color: var(--gold); }
+.testimonials-header p { color: var(--gray); font-size: 13px; letter-spacing: 0.5px; }
+
+.testimonials-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+}
+.testimonial-card {
+    padding: 36px;
+    border: 1px solid rgba(139,105,20,0.15);
+    background: rgba(139,105,20,0.03);
+    border-left: 3px solid var(--gold);
+    transition: background 0.3s;
+}
+.testimonial-card:hover { background: rgba(139,105,20,0.07); }
+
+.testimonial-stars {
+    color: var(--gold);
+    font-size: 14px;
+    letter-spacing: 2px;
+    margin-bottom: 16px;
+}
+.testimonial-quote {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 18px;
+    color: var(--beige);
+    line-height: 1.8;
+    font-style: italic;
+    margin-bottom: 24px;
+}
+.testimonial-author {
+    font-size: 12px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--white);
+    font-weight: 500;
+}
+.testimonial-service {
+    font-size: 11px;
+    color: var(--gray);
+    margin-top: 4px;
+    letter-spacing: 0.5px;
+}
+
+
+/* ══════════════════════════════
    ANIMATIONS
 ══════════════════════════════ */
 @keyframes fadeUp {
@@ -465,44 +617,101 @@ footer span { color: var(--gold); }
 }
 
 /* ══════════════════════════════
-   RESPONSIVE
+   GLOBAL FIT — prevents overflow on all screens
 ══════════════════════════════ */
-@media (max-width: 900px) {
-    .grid { column-count: 2; }
-    .about { flex-direction: column; gap: 30px; }
-    .about-label { writing-mode: horizontal-tb; transform: none; }
-    .pricing-row { grid-template-columns: 1fr auto; grid-template-rows: auto auto; }
-    .pricing-row-mid { grid-column: 1 / 2; grid-row: 2; }
-    .pricing-row-right { grid-column: 2; grid-row: 1 / 3; }
+html, body {
+    max-width: 100%;
+    overflow-x: hidden;
 }
 
-@media (max-width: 700px) {
-    nav { padding: 16px 5%; }
+img, svg {
+    max-width: 100%;
+    height: auto;
+}
 
-    /* hero */
-    .hero h1 { font-size: 38px; }
-    .hero-tagline { font-size: 17px; }
-    .hero-sub { font-size: 10px; letter-spacing: 2px; }
-    .btn { padding: 13px 28px; font-size: 11px; letter-spacing: 2px; }
+/* ══════════════════════════════
+   TABLET — max 900px
+══════════════════════════════ */
+@media (max-width: 900px) {
 
     /* gallery */
-    .grid { column-count: 1; }
-    .gallery { padding: 70px 5%; }
+    .grid { column-count: 2; }
 
     /* about */
-    .about { padding: 70px 5%; gap: 20px; }
+    .about { flex-direction: column; gap: 30px; max-width: 100%; }
     .about-label { writing-mode: horizontal-tb; transform: none; }
 
     /* pricing */
-    .pricing { padding: 70px 5%; }
+    .pricing-row { grid-template-columns: 1fr auto; grid-template-rows: auto auto; }
+    .pricing-row-mid { grid-column: 1 / 2; grid-row: 2; }
+    .pricing-row-right { grid-column: 2; grid-row: 1 / 3; }
+
+    /* how it works */
+    .steps { grid-template-columns: 1fr; gap: 40px; }
+    .steps::before { display: none; }
+    .step { padding: 0; }
+
+    /* testimonials */
+    .testimonials-grid { grid-template-columns: 1fr; }
+
+    /* trust strip */
+    .trust-strip { flex-direction: column; padding: 20px 8%; gap: 0; }
+    .trust-item { border-right: none; border-bottom: 1px solid rgba(139,105,20,0.15); width: 100%; padding: 14px 0; }
+    .trust-item:last-child { border-bottom: none; }
+}
+
+/* ══════════════════════════════
+   MOBILE — max 700px
+══════════════════════════════ */
+@media (max-width: 700px) {
+
+    /* nav */
+    nav { padding: 14px 5%; }
+    .logo-text { font-size: 16px; letter-spacing: 2px; }
+    .logo-lens { font-size: 11px; }
+
+    /* hero */
+    .hero { padding: 0 5%; }
+    .hero h1 { font-size: 36px; letter-spacing: -0.5px; }
+    .hero-eyebrow { font-size: 10px; letter-spacing: 3px; margin-bottom: 16px; }
+    .hero-tagline { font-size: 16px; letter-spacing: 1px; }
+    .hero-sub { font-size: 9px; letter-spacing: 1.5px; }
+    .btn { padding: 12px 24px; font-size: 10px; letter-spacing: 2px; margin-top: 28px; }
+
+    /* trust strip */
+    .trust-strip { padding: 16px 5%; }
+    .trust-text { font-size: 11px; }
+    .trust-text strong { font-size: 12px; }
+
+    /* gallery */
+    .grid { column-count: 1; }
+    .gallery { padding: 60px 5%; }
+
+    /* how it works */
+    .how-it-works { padding: 60px 5%; }
+    .how-it-works h2 { margin-bottom: 40px; }
+    .step-num { width: 46px; height: 46px; font-size: 16px; }
+    .step h3 { font-size: 18px; }
+
+    /* about */
+    .about { padding: 60px 5%; gap: 16px; }
+    .about-label { writing-mode: horizontal-tb; transform: none; }
+    .about-body h2 { font-size: 26px; }
+    .about-body p { font-size: 16px; max-width: 100%; }
+
+    /* pricing */
+    .pricing { padding: 60px 5%; }
+    .pricing-header h2 { font-size: 26px; }
+    .pricing-intro { font-size: 15px; }
     .pricing-row {
         grid-template-columns: 1fr;
         grid-template-rows: auto;
         gap: 8px;
-        padding: 20px 0;
+        padding: 18px 0;
     }
-    .pricing-row-left { flex-wrap: wrap; gap: 10px; }
-    .pricing-outfit-label { font-size: 17px; }
+    .pricing-row-left { flex-wrap: wrap; gap: 8px; }
+    .pricing-outfit-label { font-size: 16px; }
+    .pricing-outfit-num { font-size: 12px; }
     .pricing-row-mid { display: none; }
     .pricing-row-right {
         grid-column: 1;
@@ -510,18 +719,43 @@ footer span { color: var(--gold); }
         align-items: center;
     }
     .pricing-row-price { font-size: 20px; }
-    .pricing-row-btn { padding: 9px 18px; }
-    .pricing-row.featured-row { padding-left: 8px; padding-right: 8px; }
+    .pricing-row-btn { padding: 9px 16px; font-size: 9px; }
+    .pricing-row.featured-row { padding-left: 6px; padding-right: 6px; }
+    .pricing-badge { font-size: 8px; padding: 2px 8px; }
+    .pricing-footnote { font-size: 13px; }
+
+    /* testimonials */
+    .testimonials { padding: 60px 5%; }
+    .testimonials-header h2 { font-size: 26px; }
+    .testimonial-card { padding: 20px; }
+    .testimonial-quote { font-size: 16px; }
 
     /* disclaimer */
-    .disclaimer { padding: 50px 5%; }
+    .disclaimer { padding: 40px 5%; }
+    .disclaimer p { font-size: 14px; padding-left: 14px; }
 
     /* contact */
-    .contact { padding: 70px 5%; }
-    .contact-value { font-size: 15px; }
+    .contact { padding: 60px 5%; }
+    .contact h2 { font-size: 26px; }
+    .contact-value { font-size: 14px; }
+    .contact-icon { width: 38px; height: 38px; }
+    .contact-item { gap: 14px; padding: 18px 0; }
 
     /* footer */
-    footer { font-size: 11px; letter-spacing: 1px; padding: 28px 5%; }
+    footer { font-size: 10px; letter-spacing: 1px; padding: 24px 5%; }
+}
+
+/* ══════════════════════════════
+   SMALL MOBILE — max 400px
+══════════════════════════════ */
+@media (max-width: 400px) {
+    .hero h1 { font-size: 30px; }
+    .hero-tagline { font-size: 14px; }
+    .hero-sub { display: none; }
+    .btn { padding: 11px 20px; font-size: 9px; }
+    .logo-text { font-size: 14px; letter-spacing: 1.5px; }
+    .pricing-row-price { font-size: 18px; }
+    .trust-item { gap: 8px; }
 }
 
 </style>
@@ -539,6 +773,7 @@ footer span { color: var(--gold); }
         <a href="#gallery">Work</a>
         <a href="#about">About</a>
         <a href="#pricing">Pricing</a>
+        <a href="#testimonials">Reviews</a>
         <a href="#contact">Contact</a>
     </div>
 
@@ -549,6 +784,7 @@ footer span { color: var(--gold); }
             <a href="#gallery">Work</a>
             <a href="#about">About</a>
             <a href="#pricing">Pricing</a>
+            <a href="#testimonials">Reviews</a>
             <a href="#contact">Contact</a>
         </div>
     </div>
@@ -562,9 +798,30 @@ footer span { color: var(--gold); }
         <h1>Own the <em>Frame</em>.</h1>
         <div class="hero-tagline">Portraits &bull; Stories &bull; Frames</div>
         <div class="hero-sub">Portrait &nbsp;·&nbsp; Lifestyle &nbsp;·&nbsp; Wedding Photography</div>
-        <a href="#contact" class="btn">Book a Session</a>
+        <a href="https://wa.me/2349035383549?text=Hello%20Nuelgraphy%2C%20I%27m%20interested%20in%20booking%20a%20session.%0A%0AShoot%20Type%3A%0APreferred%20Date%3A%0ALocation%3A%0ANumber%20of%20Outfits%3A" target="_blank" class="btn">Book a Session</a>
     </div>
 </section>
+
+
+<!-- ══════════════ TRUST STRIP ══════════════ -->
+<div class="trust-strip">
+    <div class="trust-item">
+        <svg class="trust-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>
+        <div class="trust-text"><strong>7-Day Delivery</strong>Your gallery, on time</div>
+    </div>
+    <div class="trust-item">
+        <svg class="trust-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+        <div class="trust-text"><strong>4 Edited Photos</strong>Per outfit, every time</div>
+    </div>
+    <div class="trust-item">
+        <svg class="trust-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+        <div class="trust-text"><strong>Private Gallery</strong>Secure, high-resolution files</div>
+    </div>
+    <div class="trust-item">
+        <svg class="trust-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+        <div class="trust-text"><strong>Based in Lagos</strong>Available across Nigeria</div>
+    </div>
+</div>
 
 
 <!-- ══════════════ GALLERY ══════════════ -->
@@ -577,6 +834,33 @@ footer span { color: var(--gold); }
         <img src="image5.jpg" alt="event coverage — Nuèlgraphy">
         <img src="image6.jpg" alt="wedding coverage — Nuèlgraphy">
         <!-- Add more: <img src="image7.jpg" alt="portrait — Nuèlgraphy"> -->
+    </div>
+</section>
+
+
+<!-- ══════════════ HOW IT WORKS ══════════════ -->
+<section class="how-it-works fade-in">
+    <h2>How it <em>works</em>.</h2>
+    <div class="steps">
+
+        <div class="step">
+            <div class="step-num">01</div>
+            <h3>Reach Out</h3>
+            <p>Send a message via WhatsApp, Instagram or email. Tell me about your vision — outfits, location, vibe. We'll figure out the right package together and lock in your date with a 50% deposit.</p>
+        </div>
+
+        <div class="step">
+            <div class="step-num">02</div>
+            <h3>We Shoot</h3>
+            <p>Show up, be yourself. I'll guide you through every pose and angle so you always look natural and confident. No experience needed — just bring your outfits and your energy.</p>
+        </div>
+
+        <div class="step">
+            <div class="step-num">03</div>
+            <h3>Receive Your Gallery</h3>
+            <p>Within 7 days, your private gallery of professionally edited, high-resolution photos is delivered. Download, share, and enjoy — these are yours forever.</p>
+        </div>
+
     </div>
 </section>
 
@@ -623,11 +907,7 @@ footer span { color: var(--gold); }
             </div>
             <div class="pricing-row-right">
                 <span class="pricing-row-price">₦25,000</span>
-                <a href="#contact" class="pricing-row-btn">Book</a>
-            </div>
-        </div>
-
-        <div class="pricing-row featured-row">
+                <a href="https://wa.me/2349035383549?text=Hello%20Nuelgraphy%2C%20I%27m%20interested%20in%20booking%20a%20session.%0A%0AShoot%20Type%3A%0APreferred%20Date%3A%0ALocation%3A%0ANumber%20of%20Outfits%3A%201%20(25%2C000)" target="_blank" class="pricing-row-btn">Book</a>
             <div class="pricing-row-left">
                 <span class="pricing-outfit-num">02</span>
                 <span class="pricing-outfit-label">Two Outfits</span>
@@ -638,7 +918,7 @@ footer span { color: var(--gold); }
             </div>
             <div class="pricing-row-right">
                 <span class="pricing-row-price">₦45,000</span>
-                <a href="#contact" class="pricing-row-btn">Book</a>
+                <a href="https://wa.me/2349035383549?text=Hello%20Nuelgraphy%2C%20I%27m%20interested%20in%20booking%20a%20session.%0A%0AShoot%20Type%3A%0APreferred%20Date%3A%0ALocation%3A%0ANumber%20of%20Outfits%3A%202%20(45%2C000)" target="_blank" class="pricing-row-btn">Book</a>
             </div>
         </div>
 
@@ -652,7 +932,7 @@ footer span { color: var(--gold); }
             </div>
             <div class="pricing-row-right">
                 <span class="pricing-row-price">₦65,000</span>
-                <a href="#contact" class="pricing-row-btn">Book</a>
+                <a href="https://wa.me/2349035383549?text=Hello%20Nuelgraphy%2C%20I%27m%20interested%20in%20booking%20a%20session.%0A%0AShoot%20Type%3A%0APreferred%20Date%3A%0ALocation%3A%0ANumber%20of%20Outfits%3A%203%20(65%2C000)" target="_blank" class="pricing-row-btn">Book</a>
             </div>
         </div>
 
@@ -666,7 +946,7 @@ footer span { color: var(--gold); }
             </div>
             <div class="pricing-row-right">
                 <span class="pricing-row-price">Custom</span>
-                <a href="#contact" class="pricing-row-btn">Enquire</a>
+                <a href="https://wa.me/2349035383549?text=Hello%20Nuelgraphy%2C%20I%27m%20interested%20in%20booking%20a%20custom%20session.%0A%0AShoot%20Type%3A%0APreferred%20Date%3A%0ALocation%3A%0ANumber%20of%20Outfits%3A%204%2B%20(Custom)" target="_blank" class="pricing-row-btn">Enquire</a>
             </div>
         </div>
 
@@ -678,6 +958,47 @@ footer span { color: var(--gold); }
         Wedding & commercial rates available on request.
     </p>
 
+</section>
+
+
+<!-- ══════════════ TESTIMONIALS ══════════════ -->
+<section id="testimonials" class="testimonials fade-in">
+    <div class="testimonials-header">
+        <h2>What clients <em>say</em>.</h2>
+        <p>Real experiences from real sessions — in their own words.</p>
+    </div>
+
+    <div class="testimonials-grid">
+
+        <div class="testimonial-card">
+            <div class="testimonial-stars">★★★★★</div>
+            <p class="testimonial-quote">"I was honestly nervous going into my shoot — I'm not the most comfortable in front of a camera. But Nuel made the whole thing so relaxed and easy. The photos came back and I couldn't believe that was me. I've never felt more confident in a picture."</p>
+            <div class="testimonial-author">Adaeze O.</div>
+            <div class="testimonial-service">1-Outfit Portrait Session, Lagos</div>
+        </div>
+
+        <div class="testimonial-card">
+            <div class="testimonial-stars">★★★★★</div>
+            <p class="testimonial-quote">"We booked Nuèlgraphy for a Christmas shoot and it was the best decision. The energy on set was amazing, the photos were delivered exactly when promised, and the quality exceeded everything we expected. We've been getting so many compliments."</p>
+            <div class="testimonial-author">Chioma & Blessing A.</div>
+            <div class="testimonial-service">2-Outfit Lifestyle Session, Lagos</div>
+        </div>
+
+        <div class="testimonial-card">
+            <div class="testimonial-stars">★★★★★</div>
+            <p class="testimonial-quote">"Professional, punctual, and incredibly talented. Nuel captured moments at our event that I didn't even realise were happening — candid, real, and beautifully edited. The gallery was ready within the week. We'll definitely be working together again."</p>
+            <div class="testimonial-author">Mrs. Fatima K.</div>
+            <div class="testimonial-service">Event Coverage, Lagos</div>
+        </div>
+
+        <div class="testimonial-card">
+            <div class="testimonial-stars">★★★★★</div>
+            <p class="testimonial-quote">"This was my third time booking with Nuèlgraphy and it just keeps getting better. Every session feels fresh, the photos are always clean and consistent, and the turnaround time is unbeatable. If you're in Lagos and need a photographer who genuinely cares — this is it."</p>
+            <div class="testimonial-author">Emeka T.</div>
+            <div class="testimonial-service">Repeat Client — Portrait & Lifestyle Sessions</div>
+        </div>
+
+    </div>
 </section>
 
 
