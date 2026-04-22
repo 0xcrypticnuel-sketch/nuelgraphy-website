@@ -1,0 +1,754 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>NUÈLGRAPHY.LENS — Portraits • Stories • Frames</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Cormorant+Garamond:wght@300;400;500&family=Jost:wght@200;300;400;500&display=swap" rel="stylesheet">
+
+<style>
+
+/* ---------- ROOT VARIABLES ---------- */
+:root {
+    --black:   #1a1208;
+    --white:   #f0ece6;
+    --gray:    #9a8e80;
+    --gold:    #8B6914;
+    --beige:   #d4c4a8;
+    --bg:      #131008;
+    --surface: #1e180a;
+}
+
+/* ---------- RESET ---------- */
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+
+/* ---------- BODY ---------- */
+body {
+    font-family: 'Jost', sans-serif;
+    background: var(--bg);
+    color: var(--white);
+    line-height: 1.7;
+    font-weight: 300;
+}
+
+/* ---------- SCROLLBAR ---------- */
+::-webkit-scrollbar { width: 4px; }
+::-webkit-scrollbar-track { background: var(--bg); }
+::-webkit-scrollbar-thumb { background: var(--gold); }
+
+/* ---------- FADE-IN ---------- */
+.fade-in {
+    opacity: 0;
+    transform: translateY(36px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+}
+.fade-in.show { opacity: 1; transform: translateY(0); }
+
+/* ══════════════════════════════
+   NAVIGATION
+══════════════════════════════ */
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 22px 8%;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 100;
+    background: rgba(19, 16, 8, 0.93);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(139, 105, 20, 0.15);
+}
+
+.logo-text {
+    font-family: 'Playfair Display', serif;
+    font-size: 20px;
+    letter-spacing: 4px;
+    font-weight: 700;
+    color: var(--white);
+    text-decoration: none;
+    display: flex;
+    align-items: baseline;
+    line-height: 1;
+}
+.logo-sep { color: var(--gold); font-weight: 700; }
+.logo-lens { color: var(--gold); font-size: 13px; letter-spacing: 3px; font-weight: 400; }
+
+/* Desktop nav */
+.nav-links { display: none; }
+.nav-links a {
+    color: var(--beige);
+    text-decoration: none;
+    font-size: 12px;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    font-weight: 300;
+    transition: color 0.3s;
+    position: relative;
+}
+.nav-links a::after {
+    content: '';
+    position: absolute;
+    bottom: -3px; left: 0;
+    width: 0; height: 1px;
+    background: var(--gold);
+    transition: width 0.3s;
+}
+.nav-links a:hover { color: var(--gold); }
+.nav-links a:hover::after { width: 100%; }
+
+/* Mobile hamburger */
+.menu-container { display: block; position: relative; }
+.menu-toggle {
+    background: none;
+    border: 1px solid rgba(139,105,20,0.4);
+    color: var(--beige);
+    cursor: pointer;
+    font-family: 'Jost', sans-serif;
+    font-size: 11px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    padding: 8px 16px;
+    transition: all 0.3s;
+}
+.menu-toggle:hover { border-color: var(--gold); color: var(--gold); }
+
+.dropdown {
+    position: absolute;
+    top: 48px; right: 0;
+    background: #1a150a;
+    border: 1px solid rgba(139,105,20,0.25);
+    display: none;
+    flex-direction: column;
+    min-width: 180px;
+}
+.dropdown a {
+    padding: 14px 20px;
+    text-decoration: none;
+    color: var(--beige);
+    font-size: 12px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    transition: color 0.3s, background 0.3s;
+    border-bottom: 1px solid rgba(139,105,20,0.1);
+}
+.dropdown a:last-child { border-bottom: none; }
+.dropdown a:hover { color: var(--gold); background: rgba(139,105,20,0.06); }
+.dropdown.show { display: flex; }
+
+/* ══════════════════════════════
+   HERO
+══════════════════════════════ */
+.hero {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 0 20px;
+    position: relative;
+    overflow: hidden;
+    background: url('image4.jpg') center 15% / cover no-repeat;
+}
+.hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to bottom, rgba(19,16,8,0.55) 0%, rgba(19,16,8,0.40) 50%, rgba(19,16,8,0.80) 100%);
+    pointer-events: none;
+    z-index: 0;
+}
+.hero::after {
+    content: '';
+    position: absolute;
+    width: 520px; height: 520px;
+    border-radius: 50%;
+    border: 1px solid rgba(212,196,168,0.07);
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+    z-index: 0;
+}
+.hero-inner { position: relative; z-index: 2; }
+
+.hero-eyebrow {
+    font-size: 12px;
+    letter-spacing: 5px;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 24px;
+    font-weight: 700;
+    text-shadow: 0 1px 8px rgba(0,0,0,0.6);
+    animation: fadeUp 1s ease both;
+}
+.hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(48px, 8vw, 88px);
+    font-weight: 700;
+    line-height: 1.1;
+    letter-spacing: -1px;
+    text-shadow: 0 2px 16px rgba(0,0,0,0.7);
+    animation: fadeUp 1s 0.2s ease both;
+}
+.hero h1 em { font-style: italic; color: var(--gold); }
+
+.hero-tagline {
+    margin-top: 20px;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 22px;
+    color: var(--white);
+    letter-spacing: 2px;
+    font-weight: 700;
+    text-shadow: 0 1px 10px rgba(0,0,0,0.7);
+    animation: fadeUp 1s 0.35s ease both;
+}
+.hero-sub {
+    margin-top: 12px;
+    font-size: 12px;
+    color: var(--white);
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    font-weight: 600;
+    text-shadow: 0 1px 8px rgba(0,0,0,0.7);
+    animation: fadeUp 1s 0.45s ease both;
+}
+.btn {
+    display: inline-block;
+    margin-top: 40px;
+    padding: 15px 42px;
+    border: 2px solid var(--gold);
+    color: var(--gold);
+    text-decoration: none;
+    font-size: 12px;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    font-weight: 700;
+    transition: background 0.3s, color 0.3s;
+    animation: fadeUp 1s 0.6s ease both;
+}
+.btn:hover { background: var(--gold); color: var(--black); }
+
+/* ══════════════════════════════
+   GALLERY
+══════════════════════════════ */
+.gallery { padding: 100px 5%; }
+.grid { column-count: 3; column-gap: 12px; }
+.grid img {
+    width: 100%;
+    margin-bottom: 12px;
+    border-radius: 1px;
+    display: block;
+    transition: opacity 0.4s, transform 0.4s;
+    filter: brightness(0.95);
+}
+.grid img:hover { opacity: 0.85; transform: scale(1.01); filter: brightness(1.05); }
+
+/* ══════════════════════════════
+   ABOUT
+══════════════════════════════ */
+.about {
+    padding: 100px 8%;
+    display: flex;
+    gap: 80px;
+    align-items: flex-start;
+    max-width: 1000px;
+}
+.about-label {
+    font-size: 11px;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: var(--gold);
+    writing-mode: vertical-rl;
+    transform: rotate(180deg);
+    min-width: 20px;
+    margin-top: 6px;
+}
+.about-body h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(30px, 4vw, 44px);
+    font-weight: 400;
+    margin-bottom: 24px;
+    line-height: 1.2;
+}
+.about-body h2 em { font-style: italic; color: var(--gold); }
+.about-body p {
+    color: var(--gray);
+    max-width: 500px;
+    line-height: 1.9;
+    margin-bottom: 16px;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 18px;
+}
+
+/* ══════════════════════════════
+   PRICING
+══════════════════════════════ */
+.pricing { padding: 100px 8%; background: var(--bg); }
+
+.pricing-header { margin-bottom: 16px; max-width: 600px; }
+.pricing-header h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(30px, 4vw, 44px);
+    font-weight: 400;
+    line-height: 1.2;
+    margin-bottom: 10px;
+}
+.pricing-header h2 em { font-style: italic; color: var(--gold); }
+
+.pricing-intro {
+    color: var(--gray);
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 17px;
+    margin-bottom: 40px;
+    max-width: 540px;
+    line-height: 1.8;
+}
+.pricing-intro strong { color: var(--beige); font-weight: 500; }
+
+.pricing-list { display: flex; flex-direction: column; border-top: 1px solid rgba(139,105,20,0.18); }
+
+.pricing-row {
+    display: grid;
+    grid-template-columns: 260px 1fr auto;
+    align-items: center;
+    gap: 24px;
+    padding: 28px 0;
+    border-bottom: 1px solid rgba(139,105,20,0.12);
+    transition: background 0.25s, padding-left 0.25s, padding-right 0.25s;
+}
+.pricing-row:hover { background: rgba(139,105,20,0.04); padding-left: 12px; padding-right: 12px; }
+.pricing-row.featured-row {
+    background: rgba(139,105,20,0.06);
+    padding-left: 12px; padding-right: 12px;
+    border-color: rgba(139,105,20,0.25);
+}
+.pricing-row-left { display: flex; align-items: center; gap: 18px; }
+.pricing-outfit-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 13px;
+    color: var(--gold);
+    opacity: 0.7;
+    min-width: 28px;
+}
+.pricing-outfit-label {
+    font-family: 'Playfair Display', serif;
+    font-size: 20px;
+    font-weight: 400;
+    color: var(--white);
+}
+.pricing-badge {
+    font-size: 9px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    background: var(--gold);
+    color: var(--black);
+    padding: 3px 10px;
+    font-weight: 500;
+}
+.pricing-row-detail { font-size: 12px; color: var(--gray); letter-spacing: 0.5px; }
+.pricing-row-right { display: flex; align-items: center; gap: 24px; justify-content: flex-end; }
+.pricing-row-price {
+    font-family: 'Playfair Display', serif;
+    font-size: 26px;
+    font-weight: 400;
+    color: var(--white);
+    white-space: nowrap;
+}
+.pricing-row-btn {
+    display: inline-block;
+    padding: 10px 24px;
+    border: 1px solid rgba(139,105,20,0.4);
+    color: var(--beige);
+    text-decoration: none;
+    font-size: 10px;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    transition: all 0.3s;
+    white-space: nowrap;
+}
+.pricing-row-btn:hover,
+.featured-row .pricing-row-btn { background: var(--gold); border-color: var(--gold); color: var(--black); }
+
+.pricing-footnote {
+    margin-top: 40px;
+    color: var(--gray);
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 15px;
+    font-style: italic;
+    max-width: 540px;
+}
+
+/* ══════════════════════════════
+   DISCLAIMER
+══════════════════════════════ */
+.disclaimer {
+    padding: 60px 8%;
+    background: var(--surface);
+    border-top: 1px solid rgba(139,105,20,0.1);
+    border-bottom: 1px solid rgba(139,105,20,0.1);
+}
+.disclaimer p {
+    max-width: 620px;
+    color: var(--gray);
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 16px;
+    line-height: 1.9;
+    padding-left: 20px;
+    border-left: 2px solid rgba(139,105,20,0.35);
+}
+
+/* ══════════════════════════════
+   CONTACT
+══════════════════════════════ */
+.contact { padding: 100px 8%; background: var(--surface); }
+.contact h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(30px, 4vw, 44px);
+    font-weight: 400;
+    margin-bottom: 8px;
+}
+.contact h2 em { font-style: italic; color: var(--gold); }
+.contact-sub { color: var(--gray); font-size: 13px; margin-bottom: 48px; letter-spacing: 0.5px; }
+
+.contact-links { display: flex; flex-direction: column; max-width: 560px; border-top: 1px solid rgba(139,105,20,0.18); }
+.contact-item {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    padding: 22px 0;
+    border-bottom: 1px solid rgba(139,105,20,0.12);
+    text-decoration: none;
+    color: var(--white);
+    transition: padding-left 0.3s, background 0.3s;
+}
+.contact-item:hover { padding-left: 12px; background: rgba(139,105,20,0.05); }
+.contact-icon {
+    width: 44px; height: 44px;
+    border: 1px solid rgba(139,105,20,0.3);
+    display: flex; align-items: center; justify-content: center;
+    color: var(--gold);
+    flex-shrink: 0;
+    transition: background 0.3s, border-color 0.3s;
+}
+.contact-item:hover .contact-icon { background: var(--gold); color: var(--black); border-color: var(--gold); }
+.contact-detail { display: flex; flex-direction: column; gap: 3px; flex: 1; }
+.contact-label { font-size: 10px; letter-spacing: 3px; text-transform: uppercase; color: var(--gold); }
+.contact-value { font-family: 'Cormorant Garamond', serif; font-size: 18px; color: var(--beige); }
+.contact-arrow {
+    color: var(--gold); font-size: 18px;
+    opacity: 0; transform: translateX(-8px);
+    transition: opacity 0.3s, transform 0.3s;
+}
+.contact-item:hover .contact-arrow { opacity: 1; transform: translateX(0); }
+
+/* ══════════════════════════════
+   FOOTER
+══════════════════════════════ */
+footer {
+    text-align: center;
+    padding: 36px;
+    color: var(--gray);
+    font-size: 12px;
+    letter-spacing: 2px;
+    border-top: 1px solid rgba(139,105,20,0.12);
+}
+footer span { color: var(--gold); }
+
+/* ══════════════════════════════
+   ANIMATIONS
+══════════════════════════════ */
+@keyframes fadeUp {
+    from { opacity: 0; transform: translateY(24px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ══════════════════════════════
+   RESPONSIVE
+══════════════════════════════ */
+@media (max-width: 900px) {
+    .grid { column-count: 2; }
+    .about { flex-direction: column; gap: 30px; }
+    .about-label { writing-mode: horizontal-tb; transform: none; }
+    .pricing-row { grid-template-columns: 1fr auto; grid-template-rows: auto auto; }
+    .pricing-row-mid { grid-column: 1 / 2; grid-row: 2; }
+    .pricing-row-right { grid-column: 2; grid-row: 1 / 3; }
+}
+
+@media (max-width: 700px) {
+    .nav-links { display: none; }
+    .menu-container { display: block; }
+    nav { padding: 16px 5%; }
+    .grid { column-count: 1; }
+    .about { padding: 70px 5%; }
+    .contact { padding: 70px 5%; }
+    .pricing { padding: 70px 5%; }
+    .disclaimer { padding: 50px 5%; }
+    .pricing-row { grid-template-columns: 1fr; gap: 12px; }
+    .pricing-row-mid { display: none; }
+    .pricing-row-right { justify-content: space-between; }
+}
+
+</style>
+</head>
+<body>
+
+<!-- ══════════════ NAV ══════════════ -->
+<nav>
+    <a href="#" class="logo-text">
+        NUÈLGRAPHY<span class="logo-sep">.</span><span class="logo-lens">LENS</span>
+    </a>
+
+    <!-- Desktop -->
+    <div class="nav-links">
+        <a href="#gallery">Work</a>
+        <a href="#about">About</a>
+        <a href="#pricing">Pricing</a>
+        <a href="#contact">Contact</a>
+    </div>
+
+    <!-- Mobile -->
+    <div class="menu-container">
+        <button class="menu-toggle">Menu</button>
+        <div class="dropdown">
+            <a href="#gallery">Work</a>
+            <a href="#about">About</a>
+            <a href="#pricing">Pricing</a>
+            <a href="#contact">Contact</a>
+        </div>
+    </div>
+</nav>
+
+
+<!-- ══════════════ HERO ══════════════ -->
+<section class="hero">
+    <div class="hero-inner">
+        <div class="hero-eyebrow">Lagos · Nigeria</div>
+        <h1>Own the <em>Frame</em>.</h1>
+        <div class="hero-tagline">Portraits &bull; Stories &bull; Frames</div>
+        <div class="hero-sub">Portrait &nbsp;·&nbsp; Lifestyle &nbsp;·&nbsp; Wedding Photography</div>
+        <a href="#contact" class="btn">Book a Session</a>
+    </div>
+</section>
+
+
+<!-- ══════════════ GALLERY ══════════════ -->
+<section id="gallery" class="gallery fade-in">
+    <div class="grid">
+        <img src="image1.jpg" alt="portrait — Nuèlgraphy">
+        <img src="image2.jpg" alt="lifestyle shoot — Nuèlgraphy">
+        <img src="image3.jpg" alt="lifestyle shoot — Nuèlgraphy">
+        <img src="image4.jpg" alt="portrait — Nuèlgraphy">
+        <img src="image5.jpg" alt="event coverage — Nuèlgraphy">
+        <img src="image6.jpg" alt="wedding coverage — Nuèlgraphy">
+        <!-- Add more: <img src="image7.jpg" alt="portrait — Nuèlgraphy"> -->
+    </div>
+</section>
+
+
+<!-- ══════════════ ABOUT ══════════════ -->
+<section id="about" class="about fade-in">
+    <div class="about-label">About</div>
+    <div class="about-body">
+        <h2>A refined eye for <em>real moments</em>.</h2>
+        <p>
+            Nuèlgraphy is built on a refined approach to storytelling — capturing people,
+            moments, and presence with clarity and intention. Each frame is designed to feel
+            natural, confident, and enduring, reflecting not just how you look,
+            but how you want to be remembered.
+        </p>
+        <p>
+            Based in Lagos, Nigeria. Available for portraits, lifestyle sessions, and weddings.
+        </p>
+    </div>
+</section>
+
+
+<!-- ══════════════ PRICING ══════════════ -->
+<section id="pricing" class="pricing fade-in">
+
+    <div class="pricing-header">
+        <h2>Priced per <em>outfit</em>.</h2>
+    </div>
+
+    <p class="pricing-intro">
+        Each outfit package includes <strong>4 professionally edited photos</strong>,
+        carefully selected and refined to maintain a clean and consistent standard.
+    </p>
+
+    <div class="pricing-list">
+
+        <div class="pricing-row">
+            <div class="pricing-row-left">
+                <span class="pricing-outfit-num">01</span>
+                <span class="pricing-outfit-label">One Outfit</span>
+            </div>
+            <div class="pricing-row-mid">
+                <span class="pricing-row-detail">1 look &nbsp;·&nbsp; curated edit &nbsp;·&nbsp; private gallery</span>
+            </div>
+            <div class="pricing-row-right">
+                <span class="pricing-row-price">₦25,000</span>
+                <a href="#contact" class="pricing-row-btn">Book</a>
+            </div>
+        </div>
+
+        <div class="pricing-row featured-row">
+            <div class="pricing-row-left">
+                <span class="pricing-outfit-num">02</span>
+                <span class="pricing-outfit-label">Two Outfits</span>
+                <span class="pricing-badge">Popular</span>
+            </div>
+            <div class="pricing-row-mid">
+                <span class="pricing-row-detail">2 looks &nbsp;·&nbsp; full edit &nbsp;·&nbsp; private gallery</span>
+            </div>
+            <div class="pricing-row-right">
+                <span class="pricing-row-price">₦45,000</span>
+                <a href="#contact" class="pricing-row-btn">Book</a>
+            </div>
+        </div>
+
+        <div class="pricing-row">
+            <div class="pricing-row-left">
+                <span class="pricing-outfit-num">03</span>
+                <span class="pricing-outfit-label">Three Outfits</span>
+            </div>
+            <div class="pricing-row-mid">
+                <span class="pricing-row-detail">3 looks &nbsp;·&nbsp; premium edit &nbsp;·&nbsp; private gallery</span>
+            </div>
+            <div class="pricing-row-right">
+                <span class="pricing-row-price">₦65,000</span>
+                <a href="#contact" class="pricing-row-btn">Book</a>
+            </div>
+        </div>
+
+        <div class="pricing-row">
+            <div class="pricing-row-left">
+                <span class="pricing-outfit-num">04+</span>
+                <span class="pricing-outfit-label">Four or More</span>
+            </div>
+            <div class="pricing-row-mid">
+                <span class="pricing-row-detail">Custom session &nbsp;·&nbsp; full-day coverage</span>
+            </div>
+            <div class="pricing-row-right">
+                <span class="pricing-row-price">Custom</span>
+                <a href="#contact" class="pricing-row-btn">Enquire</a>
+            </div>
+        </div>
+
+    </div>
+
+    <p class="pricing-footnote">
+        Additional edits and custom requests can be discussed based on your session needs.
+        Wedding & commercial rates available on request.
+    </p>
+
+</section>
+
+
+<!-- ══════════════ DISCLAIMER ══════════════ -->
+<div class="disclaimer fade-in">
+    <p>
+        Please note that raw image files are not provided. All final images delivered
+        have been professionally selected and edited to reflect the quality and
+        standard of the Nuèlgraphy brand.
+    </p>
+</div>
+
+
+<!-- ══════════════ CONTACT ══════════════ -->
+<section id="contact" class="contact fade-in">
+    <h2>Let's <em>create</em> together.</h2>
+    <p class="contact-sub">Enquiries, bookings & collaborations</p>
+
+    <div class="contact-links">
+
+        <a href="mailto:nuelgraphy.lens@gmail.com" class="contact-item">
+            <div class="contact-icon">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                    <rect x="2" y="4" width="20" height="16" rx="2"/>
+                    <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/>
+                </svg>
+            </div>
+            <div class="contact-detail">
+                <span class="contact-label">Email</span>
+                <span class="contact-value">nuelgraphy.lens@gmail.com</span>
+            </div>
+            <span class="contact-arrow">→</span>
+        </a>
+
+        <a href="https://wa.me/2349035383549" target="_blank" class="contact-item">
+            <div class="contact-icon">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 1.28h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.96a16 16 0 0 0 6 6l.96-.96a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/>
+                </svg>
+            </div>
+            <div class="contact-detail">
+                <span class="contact-label">Phone & WhatsApp</span>
+                <span class="contact-value">+234 903 538 3549</span>
+            </div>
+            <span class="contact-arrow">→</span>
+        </a>
+
+        <a href="https://instagram.com/nuelgraphy.lens" target="_blank" class="contact-item">
+            <div class="contact-icon">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                    <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
+                    <circle cx="12" cy="12" r="4"/>
+                    <circle cx="17.5" cy="6.5" r="0.5" fill="currentColor"/>
+                </svg>
+            </div>
+            <div class="contact-detail">
+                <span class="contact-label">Instagram</span>
+                <span class="contact-value">@nuelgraphy.lens</span>
+            </div>
+            <span class="contact-arrow">→</span>
+        </a>
+
+        <a href="https://tiktok.com/@nuelgraphy.lens" target="_blank" class="contact-item">
+            <div class="contact-icon">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M9 12a4 4 0 1 0 4 4V4a5 5 0 0 0 5 5"/>
+                </svg>
+            </div>
+            <div class="contact-detail">
+                <span class="contact-label">TikTok</span>
+                <span class="contact-value">@nuelgraphy.lens</span>
+            </div>
+            <span class="contact-arrow">→</span>
+        </a>
+
+    </div>
+</section>
+
+
+<!-- ══════════════ FOOTER ══════════════ -->
+<footer>
+    &copy; 2026 <span>NUÈLGRAPHY.LENS</span> &nbsp;&mdash;&nbsp; Portraits &bull; Stories &bull; Frames
+</footer>
+
+
+<!-- ══════════════ SCRIPTS ══════════════ -->
+<script>
+    // Mobile menu toggle
+    const toggle = document.querySelector('.menu-toggle');
+    const dropdown = document.querySelector('.dropdown');
+    toggle.addEventListener('click', () => dropdown.classList.toggle('show'));
+
+    // Close menu when a link is tapped
+    document.querySelectorAll('.dropdown a').forEach(link => {
+        link.addEventListener('click', () => dropdown.classList.remove('show'));
+    });
+
+    // Scroll fade-in
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) entry.target.classList.add('show');
+        });
+    }, { threshold: 0.1 });
+
+    document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+</script>
+
+</body>
+</html>
