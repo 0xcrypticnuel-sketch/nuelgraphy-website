@@ -58,21 +58,35 @@ nav {
 }
 
 /* ── LOGO: shows your image if present, otherwise shows text ── */
-.logo img {
-    height: 48px;
-    width: auto;
-    object-fit: contain;
-    display: block;
-}
-
-/* Fallback text logo (shown if image fails to load) */
 .logo-text {
     font-family: 'Playfair Display', serif;
-    font-size: 18px;
+    font-size: 20px;
+    letter-spacing: 4px;
+    font-weight: 700;
+    color: var(--white);
+    text-decoration: none;
+    display: flex;
+    align-items: baseline;
+    gap: 0px;
+    line-height: 1;
+}
+
+.logo-main {
+    color: var(--white);
+    font-weight: 700;
+}
+
+.logo-sep {
+    color: var(--gold);
+    font-weight: 700;
+}
+
+.logo-lens {
+    color: var(--gold);
+    font-size: 13px;
     letter-spacing: 3px;
     font-weight: 400;
 }
-.logo-text span { color: var(--gold); }
 
 .nav-links { display: flex; gap: 32px; align-items: center; }
 
@@ -143,21 +157,23 @@ nav {
 .hero-inner { position: relative; z-index: 2; }
 
 .hero-eyebrow {
-    font-size: 11px;
+    font-size: 12px;
     letter-spacing: 5px;
     text-transform: uppercase;
     color: var(--gold);
     margin-bottom: 24px;
-    font-weight: 400;
+    font-weight: 700;
+    text-shadow: 0 1px 8px rgba(0,0,0,0.6);
     animation: fadeUp 1s ease both;
 }
 
 .hero h1 {
     font-family: 'Playfair Display', serif;
     font-size: clamp(48px, 8vw, 88px);
-    font-weight: 400;
+    font-weight: 700;
     line-height: 1.1;
     letter-spacing: -1px;
+    text-shadow: 0 2px 16px rgba(0,0,0,0.7);
     animation: fadeUp 1s 0.2s ease both;
 }
 
@@ -169,35 +185,39 @@ nav {
 .hero-tagline {
     margin-top: 20px;
     font-family: 'Cormorant Garamond', serif;
-    font-size: 18px;
-    color: var(--beige);
-    letter-spacing: 1px;
-    font-weight: 300;
+    font-size: 22px;
+    color: var(--white);
+    letter-spacing: 2px;
+    font-weight: 700;
+    text-shadow: 0 1px 10px rgba(0,0,0,0.7);
     animation: fadeUp 1s 0.35s ease both;
 }
 
 .hero-sub {
-    margin-top: 10px;
-    font-size: 11px;
-    color: var(--gray);
+    margin-top: 12px;
+    font-size: 12px;
+    color: var(--white);
     letter-spacing: 3px;
     text-transform: uppercase;
+    font-weight: 600;
+    text-shadow: 0 1px 8px rgba(0,0,0,0.7);
     animation: fadeUp 1s 0.45s ease both;
 }
 
 .btn {
     display: inline-block;
     margin-top: 40px;
-    padding: 14px 38px;
-    border: 1px solid var(--gold);
+    padding: 15px 42px;
+    border: 2px solid var(--gold);
     color: var(--gold);
     text-decoration: none;
-    font-size: 11px;
-    letter-spacing: 3px;
+    font-size: 12px;
+    letter-spacing: 4px;
     text-transform: uppercase;
-    font-weight: 400;
+    font-weight: 700;
     transition: background 0.3s, color 0.3s;
     animation: fadeUp 1s 0.6s ease both;
+    text-shadow: none;
 }
 
 .btn:hover {
@@ -665,16 +685,9 @@ footer span { color: var(--gold); }
 <!-- ══════════════ NAV ══════════════ -->
 <nav>
     <div class="logo">
-        <!--
-            ✅ YOUR LOGO:
-            Save your logo image as "nuèlgraphy-logo.png" in the same folder as this file.
-            If the image loads, it will show. If not, the text below shows instead.
-        -->
-        <img src="nuèlgraphy-logo.png" alt="Nuèlgraphy"
-             onerror="this.style.display='none'; document.querySelector('.logo-text').style.display='block'">
-        <div class="logo-text" style="display:none;">
-            NUÈLGRAPHY<span>.LENS</span>
-        </div>
+        <a href="#" class="logo-text">
+            <span class="logo-main">NUÈLGRAPHY</span><span class="logo-sep">.</span><span class="logo-lens">LENS</span>
+        </a>
     </div>
 
     <div class="nav-links">
