@@ -5,7 +5,30 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>NUÈLGRAPHY.LENS — Portraits • Stories • Frames</title>
 
-<!-- Google tag (gtag.js) -->
+<!-- ── SEO ── -->
+<meta name="description" content="Professional portrait, lifestyle and wedding photographer based in Lagos, Nigeria. Sessions from ₦25,000 per outfit. 4 edited photos delivered in 7 days.">
+<meta name="keywords" content="photographer Lagos, portrait photographer Lagos Nigeria, lifestyle photographer Lagos, wedding photographer Lagos, Nuèlgraphy, photo shoot Lagos">
+<meta name="author" content="Nuèlgraphy.Lens">
+<meta name="robots" content="index, follow">
+
+<!-- ── OPEN GRAPH ── -->
+<meta property="og:title" content="NUÈLGRAPHY.LENS — Portraits • Stories • Frames">
+<meta property="og:description" content="Professional portrait & lifestyle photographer in Lagos. Sessions from ₦25,000. Gallery delivered in 7 days.">
+<meta property="og:image" content="image4.jpg">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="en_NG">
+
+<!-- ── TWITTER CARD ── -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="NUÈLGRAPHY.LENS — Portraits • Stories • Frames">
+<meta name="twitter:description" content="Professional portrait & lifestyle photographer in Lagos. Sessions from ₦25,000.">
+<meta name="twitter:image" content="image4.jpg">
+
+<!-- ── FAVICON ── -->
+<link rel="icon" type="image/png" href="nuèlgraphy-logo.png">
+<link rel="apple-touch-icon" href="nuèlgraphy-logo.png">
+
+<!-- ── GOOGLE ANALYTICS ── -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-ZSDNP6W3ZD"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
@@ -13,18 +36,21 @@
   gtag('js', new Date());
   gtag('config', 'G-ZSDNP6W3ZD');
 </script>
+
+<!-- ── FONTS ── -->
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Cormorant+Garamond:wght@300;400;500&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+
 <style>
 
 /* ─── VARIABLES ─── */
 :root {
-  --bg:      #131008;
-  --surface: #1e180a;
-  --black:   #1a1208;
-  --white:   #f0ece6;
-  --beige:   #d4c4a8;
-  --gray:    #b0a090;
-  --gold:    #8B6914;
+  --bg:          #131008;
+  --surface:     #1e180a;
+  --black:       #1a1208;
+  --white:       #f0ece6;
+  --beige:       #d4c4a8;
+  --gray:        #b0a090;
+  --gold:        #8B6914;
   --gold-bright: #c8991f;
 }
 
@@ -33,8 +59,10 @@
 html { scroll-behavior: smooth; overflow-x: hidden; }
 body {
   font-family: 'Jost', sans-serif;
-  background: var(--bg); color: var(--white);
-  line-height: 1.75; font-weight: 300;
+  background: var(--bg);
+  color: var(--white);
+  line-height: 1.75;
+  font-weight: 300;
   font-size: 17px;
   overflow-x: hidden;
 }
@@ -46,7 +74,11 @@ img { max-width: 100%; display: block; }
 ::-webkit-scrollbar-thumb { background: var(--gold); }
 
 /* ─── FADE IN ─── */
-.fade-in { opacity: 0; transform: translateY(32px); transition: opacity 0.8s ease, transform 0.8s ease; }
+.fade-in {
+  opacity: 0;
+  transform: translateY(32px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
 .fade-in.show { opacity: 1; transform: translateY(0); }
 
 /* ─── KEYFRAMES ─── */
@@ -55,9 +87,9 @@ img { max-width: 100%; display: block; }
   to   { opacity: 1; transform: translateY(0); }
 }
 
-/* ══════════════════════════════════
+/* ══════════════════════════════════════
    NAV
-══════════════════════════════════ */
+══════════════════════════════════════ */
 nav {
   position: fixed; top: 0; width: 100%; z-index: 100;
   display: flex; justify-content: space-between; align-items: center;
@@ -75,8 +107,6 @@ nav {
 .logo-sep { color: var(--gold); }
 .logo-lens { color: var(--gold); font-size: 14px; letter-spacing: 3px; font-weight: 400; }
 
-.nav-links { display: none; }
-
 .menu-container { position: relative; }
 .menu-toggle {
   background: none;
@@ -87,12 +117,12 @@ nav {
   padding: 9px 18px; transition: all 0.3s;
 }
 .menu-toggle:hover { border-color: var(--gold); color: var(--gold); }
-
 .dropdown {
   position: absolute; top: 48px; right: 0;
   background: #1a150a;
   border: 1px solid rgba(139,105,20,0.28);
-  display: none; flex-direction: column; min-width: 190px; z-index: 200;
+  display: none; flex-direction: column;
+  min-width: 190px; z-index: 200;
 }
 .dropdown a {
   padding: 15px 22px; text-decoration: none;
@@ -105,9 +135,9 @@ nav {
 .dropdown a:hover { color: var(--gold); background: rgba(139,105,20,0.07); }
 .dropdown.show { display: flex; }
 
-/* ══════════════════════════════════
+/* ══════════════════════════════════════
    HERO
-══════════════════════════════════ */
+══════════════════════════════════════ */
 .hero {
   min-height: 100vh;
   display: flex; align-items: center; justify-content: center; text-align: center;
@@ -124,14 +154,13 @@ nav {
 }
 .hero-inner { position: relative; z-index: 1; max-width: 740px; width: 100%; }
 
-/* ── LOCATION — bright gold, larger ── */
+/* Lagos · Nigeria — bright glowing gold */
 .hero-eyebrow {
-  font-size: 14px; letter-spacing: 6px; text-transform: uppercase;
+  font-size: 15px; letter-spacing: 6px; text-transform: uppercase;
   color: var(--gold-bright); font-weight: 700; margin-bottom: 22px;
-  text-shadow: 0 0 20px rgba(200,153,31,0.6), 0 1px 8px rgba(0,0,0,0.5);
+  text-shadow: 0 0 24px rgba(200,153,31,0.8), 0 1px 8px rgba(0,0,0,0.5);
   animation: fadeUp 1s ease both;
 }
-
 .hero h1 {
   font-family: 'Playfair Display', serif;
   font-size: clamp(46px, 9vw, 96px); font-weight: 700; line-height: 1.1;
@@ -139,44 +168,45 @@ nav {
   animation: fadeUp 1s 0.15s ease both;
 }
 .hero h1 em { font-style: italic; color: var(--gold-bright); }
-
 .hero-tagline {
   margin-top: 20px;
   font-family: 'Cormorant Garamond', serif;
-  font-size: clamp(18px, 3vw, 26px); color: var(--white);
-  letter-spacing: 2px; font-weight: 700;
+  font-size: clamp(18px, 3vw, 26px);
+  color: var(--white); letter-spacing: 2px; font-weight: 700;
   text-shadow: 0 1px 12px rgba(0,0,0,0.7);
   animation: fadeUp 1s 0.3s ease both;
 }
 .hero-sub {
   margin-top: 12px;
   font-size: clamp(10px, 1.6vw, 14px);
-  color: var(--white); letter-spacing: 3px; text-transform: uppercase; font-weight: 600;
+  color: var(--white); letter-spacing: 3px;
+  text-transform: uppercase; font-weight: 600;
   text-shadow: 0 1px 8px rgba(0,0,0,0.7);
   animation: fadeUp 1s 0.45s ease both;
 }
+
+/* Book a Session — solid filled, fully visible */
 .btn {
   display: inline-block; margin-top: 38px;
-  padding: 18px 48px;
+  padding: 18px 50px;
   background: var(--gold-bright);
   border: 2px solid var(--gold-bright);
   color: var(--black);
-  text-decoration: none; font-size: 14px; letter-spacing: 4px;
-  text-transform: uppercase; font-weight: 700;
-  transition: background 0.3s, color 0.3s, border-color 0.3s, box-shadow 0.3s;
+  text-decoration: none; font-size: 14px;
+  letter-spacing: 4px; text-transform: uppercase; font-weight: 700;
+  box-shadow: 0 4px 28px rgba(200,153,31,0.55);
+  transition: background 0.3s, color 0.3s, box-shadow 0.3s;
   animation: fadeUp 1s 0.6s ease both;
-  box-shadow: 0 4px 24px rgba(200,153,31,0.45);
 }
 .btn:hover {
   background: transparent;
   color: var(--gold-bright);
-  border-color: var(--gold-bright);
   box-shadow: 0 4px 32px rgba(200,153,31,0.25);
 }
 
-/* ══════════════════════════════════
+/* ══════════════════════════════════════
    TRUST STRIP
-══════════════════════════════════ */
+══════════════════════════════════════ */
 .trust-strip {
   background: var(--surface);
   border-top: 1px solid rgba(139,105,20,0.18);
@@ -194,9 +224,9 @@ nav {
 .trust-text { font-size: 14px; color: var(--beige); line-height: 1.5; }
 .trust-text strong { display: block; color: var(--white); font-size: 15px; font-weight: 500; }
 
-/* ══════════════════════════════════
+/* ══════════════════════════════════════
    GALLERY
-══════════════════════════════════ */
+══════════════════════════════════════ */
 .gallery { padding: 90px 5%; }
 .grid { column-count: 3; column-gap: 12px; }
 .grid img {
@@ -205,9 +235,9 @@ nav {
 }
 .grid img:hover { opacity: 0.85; transform: scale(1.01); filter: brightness(1.05); }
 
-/* ══════════════════════════════════
+/* ══════════════════════════════════════
    HOW IT WORKS
-══════════════════════════════════ */
+══════════════════════════════════════ */
 .how-it-works { padding: 90px 8%; }
 .how-it-works h2 {
   font-family: 'Playfair Display', serif;
@@ -225,13 +255,13 @@ nav {
 }
 .step h3 {
   font-family: 'Playfair Display', serif;
-  font-size: 21px; font-weight: 400; color: var(--white); margin-bottom: 12px;
+  font-size: 22px; font-weight: 400; color: var(--white); margin-bottom: 12px;
 }
 .step p { font-family: 'Cormorant Garamond', serif; font-size: 18px; color: var(--gray); line-height: 1.85; }
 
-/* ══════════════════════════════════
+/* ══════════════════════════════════════
    ABOUT
-══════════════════════════════════ */
+══════════════════════════════════════ */
 .about { padding: 90px 8%; display: flex; gap: 64px; align-items: flex-start; }
 .about-label {
   font-size: 12px; letter-spacing: 4px; text-transform: uppercase;
@@ -249,9 +279,9 @@ nav {
   color: var(--gray); line-height: 1.9; margin-bottom: 16px; max-width: 520px;
 }
 
-/* ══════════════════════════════════
+/* ══════════════════════════════════════
    PRICING
-══════════════════════════════════ */
+══════════════════════════════════════ */
 .pricing { padding: 90px 8%; background: var(--bg); }
 .pricing-header h2 {
   font-family: 'Playfair Display', serif;
@@ -263,9 +293,9 @@ nav {
   color: var(--gray); line-height: 1.8; max-width: 540px; margin: 14px 0 38px;
 }
 .pricing-intro strong { color: var(--beige); font-weight: 500; }
-
 .pricing-list { border-top: 1px solid rgba(139,105,20,0.22); }
 
+/* Clean flex column — consistent on every screen */
 .pricing-row {
   display: flex; flex-direction: column; gap: 12px;
   padding: 24px 16px;
@@ -273,17 +303,30 @@ nav {
   transition: background 0.25s;
 }
 .pricing-row:hover { background: rgba(139,105,20,0.04); }
-.pricing-row.featured-row { background: rgba(139,105,20,0.07); border-color: rgba(139,105,20,0.28); }
-
+.pricing-row.featured-row {
+  background: rgba(139,105,20,0.07);
+  border-color: rgba(139,105,20,0.28);
+}
 .pricing-row-top { display: flex; align-items: center; gap: 14px; flex-wrap: wrap; }
-.pricing-outfit-num { font-family: 'Playfair Display', serif; font-size: 13px; color: var(--gold); opacity: 0.7; }
-.pricing-outfit-label { font-family: 'Playfair Display', serif; font-size: 22px; font-weight: 400; color: var(--white); }
+.pricing-outfit-num {
+  font-family: 'Playfair Display', serif;
+  font-size: 13px; color: var(--gold); opacity: 0.7;
+}
+.pricing-outfit-label {
+  font-family: 'Playfair Display', serif;
+  font-size: 22px; font-weight: 400; color: var(--white);
+}
 .pricing-badge {
   font-size: 10px; letter-spacing: 2px; text-transform: uppercase;
   background: var(--gold); color: var(--black); padding: 3px 10px; font-weight: 500;
 }
-.pricing-row-bottom { display: flex; align-items: center; justify-content: space-between; gap: 16px; }
-.pricing-row-price { font-family: 'Playfair Display', serif; font-size: 28px; font-weight: 400; color: var(--white); }
+.pricing-row-bottom {
+  display: flex; align-items: center; justify-content: space-between; gap: 16px;
+}
+.pricing-row-price {
+  font-family: 'Playfair Display', serif;
+  font-size: 28px; font-weight: 400; color: var(--white);
+}
 .pricing-row-btn {
   display: inline-block; padding: 11px 26px;
   border: 1px solid rgba(139,105,20,0.45); color: var(--beige);
@@ -291,16 +334,17 @@ nav {
   text-transform: uppercase; transition: all 0.3s; white-space: nowrap;
 }
 .pricing-row-btn:hover,
-.featured-row .pricing-row-btn { background: var(--gold); border-color: var(--gold); color: var(--black); }
-
+.featured-row .pricing-row-btn {
+  background: var(--gold); border-color: var(--gold); color: var(--black);
+}
 .pricing-footnote {
   margin-top: 38px; font-family: 'Cormorant Garamond', serif;
   font-size: 17px; font-style: italic; color: var(--gray); max-width: 560px;
 }
 
-/* ══════════════════════════════════
+/* ══════════════════════════════════════
    TESTIMONIALS
-══════════════════════════════════ */
+══════════════════════════════════════ */
 .testimonials { padding: 90px 8%; background: var(--surface); }
 .testimonials-header { margin-bottom: 52px; }
 .testimonials-header h2 {
@@ -309,7 +353,6 @@ nav {
 }
 .testimonials-header h2 em { font-style: italic; color: var(--gold); }
 .testimonials-header p { color: var(--gray); font-size: 15px; }
-
 .testimonials-grid { display: grid; grid-template-columns: repeat(2,1fr); gap: 22px; }
 .testimonial-card {
   padding: 34px; border: 1px solid rgba(139,105,20,0.15);
@@ -322,12 +365,15 @@ nav {
   font-family: 'Cormorant Garamond', serif; font-size: 19px;
   font-style: italic; color: var(--beige); line-height: 1.85; margin-bottom: 22px;
 }
-.testimonial-author { font-size: 13px; letter-spacing: 1.5px; text-transform: uppercase; color: var(--white); font-weight: 500; }
+.testimonial-author {
+  font-size: 13px; letter-spacing: 1.5px; text-transform: uppercase;
+  color: var(--white); font-weight: 500;
+}
 .testimonial-service { font-size: 12px; color: var(--gray); margin-top: 5px; }
 
-/* ══════════════════════════════════
+/* ══════════════════════════════════════
    DISCLAIMER
-══════════════════════════════════ */
+══════════════════════════════════════ */
 .disclaimer {
   padding: 56px 8%; background: var(--surface);
   border-top: 1px solid rgba(139,105,20,0.12);
@@ -339,9 +385,9 @@ nav {
   padding-left: 20px; border-left: 2px solid rgba(139,105,20,0.38);
 }
 
-/* ══════════════════════════════════
+/* ══════════════════════════════════════
    CONTACT
-══════════════════════════════════ */
+══════════════════════════════════════ */
 .contact { padding: 90px 8%; background: var(--surface); }
 .contact h2 {
   font-family: 'Playfair Display', serif;
@@ -349,8 +395,10 @@ nav {
 }
 .contact h2 em { font-style: italic; color: var(--gold); }
 .contact-sub { color: var(--gray); font-size: 15px; margin-bottom: 48px; }
-
-.contact-links { display: flex; flex-direction: column; max-width: 580px; border-top: 1px solid rgba(139,105,20,0.2); }
+.contact-links {
+  display: flex; flex-direction: column;
+  max-width: 580px; border-top: 1px solid rgba(139,105,20,0.2);
+}
 .contact-item {
   display: flex; align-items: center; gap: 20px;
   padding: 22px 0; border-bottom: 1px solid rgba(139,105,20,0.12);
@@ -371,12 +419,15 @@ nav {
   font-family: 'Cormorant Garamond', serif; font-size: 19px;
   color: var(--beige); white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
 }
-.contact-arrow { color: var(--gold); font-size: 20px; opacity: 0; transform: translateX(-8px); transition: all 0.3s; flex-shrink: 0; }
+.contact-arrow {
+  color: var(--gold); font-size: 20px; opacity: 0;
+  transform: translateX(-8px); transition: all 0.3s; flex-shrink: 0;
+}
 .contact-item:hover .contact-arrow { opacity: 1; transform: translateX(0); }
 
-/* ══════════════════════════════════
+/* ══════════════════════════════════════
    FOOTER
-══════════════════════════════════ */
+══════════════════════════════════════ */
 footer {
   text-align: center; padding: 34px 5%;
   color: var(--gray); font-size: 13px; letter-spacing: 2px;
@@ -384,13 +435,33 @@ footer {
 }
 footer span { color: var(--gold); }
 
-/* ══════════════════════════════════
+/* ══════════════════════════════════════
+   FLOATING WHATSAPP
+══════════════════════════════════════ */
+.whatsapp-float {
+  position: fixed; bottom: 28px; right: 28px; z-index: 999;
+  display: flex; align-items: center; gap: 10px;
+  background: #25D366; color: #fff; text-decoration: none;
+  padding: 14px 22px 14px 18px; border-radius: 50px;
+  font-family: 'Jost', sans-serif;
+  font-size: 14px; font-weight: 500; letter-spacing: 0.5px;
+  box-shadow: 0 4px 20px rgba(37,211,102,0.45);
+  transition: transform 0.3s, box-shadow 0.3s;
+  animation: fadeUp 1s 1.4s ease both;
+}
+.whatsapp-float:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 28px rgba(37,211,102,0.55);
+}
+.whatsapp-float svg { flex-shrink: 0; }
+
+/* ══════════════════════════════════════
    TABLET — max 900px
-══════════════════════════════════ */
+══════════════════════════════════════ */
 @media (max-width: 900px) {
   nav { padding: 18px 5%; }
-  .gallery { padding: 70px 4%; }
   .grid { column-count: 2; }
+  .gallery { padding: 70px 4%; }
   .how-it-works { padding: 70px 5%; }
   .steps { grid-template-columns: 1fr; gap: 36px; }
   .about { padding: 70px 5%; flex-direction: column; gap: 22px; }
@@ -404,46 +475,40 @@ footer span { color: var(--gold); }
   .trust-item { padding: 18px 20px; }
 }
 
-/* ══════════════════════════════════
+/* ══════════════════════════════════════
    MOBILE — max 600px
-══════════════════════════════════ */
+══════════════════════════════════════ */
 @media (max-width: 600px) {
   body { font-size: 15px; }
   nav { padding: 14px 5%; }
   .logo-text { font-size: 17px; letter-spacing: 2px; }
   .logo-lens { font-size: 12px; }
 
-  /* hero */
   .hero { padding: 95px 5% 55px; }
   .hero-eyebrow { font-size: 12px; letter-spacing: 4px; }
   .hero h1 { font-size: 36px; }
   .hero-tagline { font-size: 18px; }
   .hero-sub { font-size: 10px; letter-spacing: 2px; }
-  .btn { padding: 13px 28px; font-size: 11px; letter-spacing: 2px; margin-top: 30px; }
+  .btn { padding: 15px 30px; font-size: 12px; letter-spacing: 2px; margin-top: 30px; }
 
-  /* trust */
   .trust-strip { flex-direction: column; }
   .trust-item { border-right: none; border-bottom: 1px solid rgba(139,105,20,0.15); padding: 15px 5%; }
   .trust-item:last-child { border-bottom: none; }
   .trust-text { font-size: 13px; }
   .trust-text strong { font-size: 14px; }
 
-  /* gallery */
   .gallery { padding: 60px 4%; }
   .grid { column-count: 1; }
 
-  /* how it works */
   .how-it-works { padding: 60px 5%; }
   .how-it-works h2 { margin-bottom: 36px; }
-  .step h3 { font-size: 19px; }
+  .step h3 { font-size: 20px; }
   .step p { font-size: 16px; }
 
-  /* about */
   .about { padding: 60px 5%; }
   .about-body h2 { font-size: 26px; }
   .about-body p { font-size: 17px; }
 
-  /* pricing */
   .pricing { padding: 60px 5%; }
   .pricing-header h2 { font-size: 26px; }
   .pricing-intro { font-size: 17px; }
@@ -452,25 +517,22 @@ footer span { color: var(--gold); }
   .pricing-row-btn { padding: 10px 20px; font-size: 11px; }
   .pricing-footnote { font-size: 15px; }
 
-  /* testimonials */
   .testimonials { padding: 60px 5%; }
   .testimonials-header h2 { font-size: 26px; }
-  .testimonial-card { padding: 24px; }
+  .testimonial-card { padding: 22px; }
   .testimonial-quote { font-size: 17px; }
-  .testimonial-author { font-size: 12px; }
 
-  /* disclaimer */
   .disclaimer { padding: 36px 5%; }
   .disclaimer p { font-size: 16px; }
 
-  /* contact */
   .contact { padding: 60px 5%; }
   .contact h2 { font-size: 26px; }
   .contact-value { font-size: 17px; }
   .contact-sub { font-size: 14px; }
 
-  /* footer */
   footer { font-size: 11px; letter-spacing: 1px; padding: 26px 5%; }
+
+  .whatsapp-float { bottom: 18px; right: 14px; padding: 12px 16px 12px 14px; font-size: 12px; }
 }
 
 </style>
@@ -502,7 +564,8 @@ footer span { color: var(--gold); }
     <h1>Own the <em>Frame</em>.</h1>
     <div class="hero-tagline">Portraits &bull; Stories &bull; Frames</div>
     <div class="hero-sub">Portrait &nbsp;·&nbsp; Lifestyle &nbsp;·&nbsp; Wedding Photography</div>
-    <a href="https://wa.me/2349035383549?text=Hello%20Nuelgraphy%2C%20I%27m%20interested%20in%20booking%20a%20session.%0A%0AShoot%20Type%3A%0APreferred%20Date%3A%0ALocation%3A%0ANumber%20of%20Outfits%3A" target="_blank" class="btn">Book a Session</a>
+    <a href="https://wa.me/2349035383549?text=Hello%20Nuelgraphy%2C%20I%27m%20interested%20in%20booking%20a%20session.%0A%0AShoot%20Type%3A%0APreferred%20Date%3A%0ALocation%3A%0ANumber%20of%20Outfits%3A"
+       target="_blank" class="btn">Book a Session</a>
   </div>
 </section>
 
@@ -510,19 +573,27 @@ footer span { color: var(--gold); }
 <!-- ══ TRUST STRIP ═══════════════════════════ -->
 <div class="trust-strip">
   <div class="trust-item">
-    <svg class="trust-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>
+    <svg class="trust-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+      <rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/>
+    </svg>
     <div class="trust-text"><strong>7-Day Delivery</strong>Your gallery, on time</div>
   </div>
   <div class="trust-item">
-    <svg class="trust-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg>
+    <svg class="trust-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+      <circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/>
+    </svg>
     <div class="trust-text"><strong>4 Edited Photos</strong>Per outfit, every time</div>
   </div>
   <div class="trust-item">
-    <svg class="trust-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+    <svg class="trust-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+      <rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/>
+    </svg>
     <div class="trust-text"><strong>Private Gallery</strong>Secure, high-resolution files</div>
   </div>
   <div class="trust-item">
-    <svg class="trust-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+    <svg class="trust-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/>
+    </svg>
     <div class="trust-text"><strong>Based in Lagos</strong>Available across Nigeria</div>
   </div>
 </div>
@@ -595,7 +666,8 @@ footer span { color: var(--gold); }
       </div>
       <div class="pricing-row-bottom">
         <span class="pricing-row-price">₦25,000</span>
-        <a href="https://wa.me/2349035383549?text=Hello%20Nuelgraphy%2C%20I%27m%20interested%20in%20booking%20a%20session.%0A%0AShoot%20Type%3A%0APreferred%20Date%3A%0ALocation%3A%0ANumber%20of%20Outfits%3A%201%20(%E2%82%A625%2C000)" target="_blank" class="pricing-row-btn">Book</a>
+        <a href="https://wa.me/2349035383549?text=Hello%20Nuelgraphy%2C%20I%27m%20interested%20in%20booking%20a%20session.%0A%0AShoot%20Type%3A%0APreferred%20Date%3A%0ALocation%3A%0ANumber%20of%20Outfits%3A%201%20(%E2%82%A625%2C000)"
+           target="_blank" class="pricing-row-btn">Book</a>
       </div>
     </div>
 
@@ -607,7 +679,8 @@ footer span { color: var(--gold); }
       </div>
       <div class="pricing-row-bottom">
         <span class="pricing-row-price">₦45,000</span>
-        <a href="https://wa.me/2349035383549?text=Hello%20Nuelgraphy%2C%20I%27m%20interested%20in%20booking%20a%20session.%0A%0AShoot%20Type%3A%0APreferred%20Date%3A%0ALocation%3A%0ANumber%20of%20Outfits%3A%202%20(%E2%82%A645%2C000)" target="_blank" class="pricing-row-btn">Book</a>
+        <a href="https://wa.me/2349035383549?text=Hello%20Nuelgraphy%2C%20I%27m%20interested%20in%20booking%20a%20session.%0A%0AShoot%20Type%3A%0APreferred%20Date%3A%0ALocation%3A%0ANumber%20of%20Outfits%3A%202%20(%E2%82%A645%2C000)"
+           target="_blank" class="pricing-row-btn">Book</a>
       </div>
     </div>
 
@@ -618,7 +691,8 @@ footer span { color: var(--gold); }
       </div>
       <div class="pricing-row-bottom">
         <span class="pricing-row-price">₦65,000</span>
-        <a href="https://wa.me/2349035383549?text=Hello%20Nuelgraphy%2C%20I%27m%20interested%20in%20booking%20a%20session.%0A%0AShoot%20Type%3A%0APreferred%20Date%3A%0ALocation%3A%0ANumber%20of%20Outfits%3A%203%20(%E2%82%A665%2C000)" target="_blank" class="pricing-row-btn">Book</a>
+        <a href="https://wa.me/2349035383549?text=Hello%20Nuelgraphy%2C%20I%27m%20interested%20in%20booking%20a%20session.%0A%0AShoot%20Type%3A%0APreferred%20Date%3A%0ALocation%3A%0ANumber%20of%20Outfits%3A%203%20(%E2%82%A665%2C000)"
+           target="_blank" class="pricing-row-btn">Book</a>
       </div>
     </div>
 
@@ -629,7 +703,8 @@ footer span { color: var(--gold); }
       </div>
       <div class="pricing-row-bottom">
         <span class="pricing-row-price">Custom</span>
-        <a href="https://wa.me/2349035383549?text=Hello%20Nuelgraphy%2C%20I%27m%20interested%20in%20booking%20a%20custom%20session.%0A%0AShoot%20Type%3A%0APreferred%20Date%3A%0ALocation%3A%0ANumber%20of%20Outfits%3A%204%2B" target="_blank" class="pricing-row-btn">Enquire</a>
+        <a href="https://wa.me/2349035383549?text=Hello%20Nuelgraphy%2C%20I%27m%20interested%20in%20booking%20a%20custom%20session.%0A%0AShoot%20Type%3A%0APreferred%20Date%3A%0ALocation%3A%0ANumber%20of%20Outfits%3A%204%2B"
+           target="_blank" class="pricing-row-btn">Enquire</a>
       </div>
     </div>
 
@@ -697,7 +772,10 @@ footer span { color: var(--gold); }
 
     <a href="mailto:nuelgraphy.lens@gmail.com" class="contact-item">
       <div class="contact-icon">
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="2" y="4" width="20" height="16" rx="2"/>
+          <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/>
+        </svg>
       </div>
       <div class="contact-detail">
         <span class="contact-label">Email</span>
@@ -708,7 +786,9 @@ footer span { color: var(--gold); }
 
     <a href="https://wa.me/2349035383549" target="_blank" class="contact-item">
       <div class="contact-icon">
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 1.28h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.96a16 16 0 0 0 6 6l.96-.96a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 1.28h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.96a16 16 0 0 0 6 6l.96-.96a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/>
+        </svg>
       </div>
       <div class="contact-detail">
         <span class="contact-label">Phone & WhatsApp</span>
@@ -719,7 +799,11 @@ footer span { color: var(--gold); }
 
     <a href="https://instagram.com/nuelgraphy.lens" target="_blank" class="contact-item">
       <div class="contact-icon">
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="0.5" fill="currentColor"/></svg>
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
+          <circle cx="12" cy="12" r="4"/>
+          <circle cx="17.5" cy="6.5" r="0.5" fill="currentColor"/>
+        </svg>
       </div>
       <div class="contact-detail">
         <span class="contact-label">Instagram</span>
@@ -730,7 +814,9 @@ footer span { color: var(--gold); }
 
     <a href="https://tiktok.com/@nuelgraphy.lens" target="_blank" class="contact-item">
       <div class="contact-icon">
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 12a4 4 0 1 0 4 4V4a5 5 0 0 0 5 5"/></svg>
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M9 12a4 4 0 1 0 4 4V4a5 5 0 0 0 5 5"/>
+        </svg>
       </div>
       <div class="contact-detail">
         <span class="contact-label">TikTok</span>
@@ -747,6 +833,16 @@ footer span { color: var(--gold); }
 <footer>
   &copy; 2026 <span>NUÈLGRAPHY.LENS</span> &nbsp;&mdash;&nbsp; Portraits &bull; Stories &bull; Frames
 </footer>
+
+
+<!-- ══ FLOATING WHATSAPP ══════════════════════ -->
+<a href="https://wa.me/2349035383549?text=Hello%20Nuelgraphy%2C%20I%27m%20interested%20in%20booking%20a%20session.%0A%0AShoot%20Type%3A%0APreferred%20Date%3A%0ALocation%3A%0ANumber%20of%20Outfits%3A"
+   target="_blank" class="whatsapp-float" aria-label="Book via WhatsApp">
+  <svg width="22" height="22" viewBox="0 0 24 24" fill="white" xmlns="http://www.w3.org/2000/svg">
+    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/>
+  </svg>
+  Book via WhatsApp
+</a>
 
 
 <!-- ══ SCRIPTS ════════════════════════════════ -->
